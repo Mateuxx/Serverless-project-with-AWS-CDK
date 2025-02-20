@@ -9,4 +9,6 @@
 
 ### AWS API Gateway 
 - A Resource that let us do some requests( REST api or HTTP) over some resources that we have in our aws account.
-- 
+
+### DynamoDB 
+- A Database Nosql from aws, great for: low latency, high performance and scabillity 
