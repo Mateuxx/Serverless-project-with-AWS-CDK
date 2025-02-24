@@ -1,7 +1,8 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
 import { LambdaIntegration } from 'aws-cdk-lib/aws-apigateway';
 import { ITable } from 'aws-cdk-lib/aws-dynamodb';
-import { Code, Function as LambdaFunction, Runtime} from 'aws-cdk-lib/aws-lambda';
+import { Code, Runtime} from 'aws-cdk-lib/aws-lambda';
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
 import { join } from 'path';
 
@@ -17,10 +18,11 @@ export class LambdaStack extends Stack {
         super(scope, id, props);
 
         // Data stack resources
-       const helloLambda = new LambdaFunction(this, 'HelloLambda', {
+        //This function is the one that solve all the problems
+       const helloLambda = new NodejsFunction(this, 'HelloLambda', {
             runtime: Runtime.NODEJS_20_X,
-            handler: "hello.main",
-            code: Code.fromAsset(join(__dirname, '..', '..', 'service')),
+            handler: "handler",
+            entry: (join(__dirname, '..', '..', 'service', 'hello.ts')),
             environment : {
                 TABLE_NAME: props.spacesTable.tableName
             }
