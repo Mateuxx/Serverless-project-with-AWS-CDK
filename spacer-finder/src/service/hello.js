@@ -4,3 +4,4 @@ exports.main = async function (event, context) {
         body:JSON.stringify(`Hello! I will read from ${process.env.TABLE_NAME}`)
     }
 }
+

@@ -12,3 +12,7 @@
 
 ### DynamoDB 
 - A Database Nosql from aws, great for: low latency, high performance and scabillity 
+
+###  NodejsFunction CCDK construct 
+![alt text](image.png)
+
