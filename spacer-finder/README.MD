@@ -16,3 +16,9 @@
 ###  NodejsFunction CCDK construct 
 ![alt text](image.png)
 
+### AWS Lambda Architecture 
+![alt text](image-1.png)
+
+From a basic point of view of a basic serverles application, we have: 
+
+-An API Gateway gets the 
