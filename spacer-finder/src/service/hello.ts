@@ -1,5 +1,4 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResultV2, Context } from "aws-lambda";
-import { v4 } from "uuid";
 import { S3Client, ListBucketsCommand } from "@aws-sdk/client-s3";
 
 

@@ -1,4 +1,7 @@
 
 
-GET https://uijkc4bc8a.execute-api.us-east-2.amazonaws.com/prod/spaces
+GET https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces
+###
+
+POST https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces
 ###
