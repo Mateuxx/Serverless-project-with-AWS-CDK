@@ -1,5 +1,9 @@
-import { handler } from "../service/hello";
+import { handler } from "../service/spaces/handler";
 
+handler({
+    httpMethod: 'GET',
+    // body: JSON.stringify({
+    //     location: "London"
+    // })
 
-
-handler({} as any, {} as any);
+} as any, {} as any);
