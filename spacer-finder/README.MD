@@ -40,3 +40,8 @@ From a basic point of view of a basic serverles application, we have:
   - Not the recommendation by AWS
 
 - **Just a reminder: pay attention to Cold start for lambda!**
+
+### DynamoDb 
+- its a nosql database use for aws
+- much easier than RDS to use with lambda and cdk 
+  - i already use in my current job and we have some problems to use lambda with rds stuff
