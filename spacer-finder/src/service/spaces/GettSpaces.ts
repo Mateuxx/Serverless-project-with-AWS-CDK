@@ -44,7 +44,6 @@ export async function getSpaces (event: APIGatewayProxyEvent, dynamodbClient: Dy
                 body: JSON.stringify("Id required!")
             }
         }
-
         
     } else {
         console.log("No query string parameters")

@@ -45,3 +45,8 @@ From a basic point of view of a basic serverles application, we have:
 - its a nosql database use for aws
 - much easier than RDS to use with lambda and cdk 
   - i already use in my current job and we have some problems to use lambda with rds stuff
+
+### Marshalling and Unmarshalling
+- Marshalling: Converting programming language types into DynamoDB format (ex: JS object -> DynamoDB item)
+- Unmarshalling: Converting DynamoDB format back to programming language types (ex: DynamoDB item -> JS object)
+
