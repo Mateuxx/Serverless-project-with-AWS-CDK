@@ -14,4 +14,3 @@ new ApiStack  (app, 'ApiStack',{
     spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration
 })
 
-

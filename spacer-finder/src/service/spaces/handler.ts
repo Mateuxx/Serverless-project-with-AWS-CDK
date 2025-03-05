@@ -15,11 +15,11 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
     try {
         switch (event.httpMethod) {
             case "GET":
-                const getResponse = getSpaces(event, dynamodbClient);
+                const getResponse = await getSpaces(event, dynamodbClient);
                 return getResponse;
 
             case "POST":
-                const postResponse = postSpaces(event, dynamodbClient);
+                const postResponse = await postSpaces(event, dynamodbClient);
                 return postResponse;
 
             default:
@@ -33,7 +33,7 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
         }
 
     }
-
+    //this is a response to the API Gateway
     const response: APIGatewayProxyResult = {
         statusCode: 200,
         body: JSON.stringify(message)

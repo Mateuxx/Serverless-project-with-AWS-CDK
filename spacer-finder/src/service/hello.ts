@@ -19,8 +19,9 @@ async function handler (event: APIGatewayProxyEvent, context: Context) {
         body: JSON.stringify('Hello from lambda! here are ur lambdas: ' + JSON.stringify(listBucketResult))
     }
     console.log(event)
-
+    
     return response;
 }
 
 export {handler}
+
