@@ -38,14 +38,14 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
     } catch (error) {
         console.log(error)
         return {
-            statusCode: 500,
+            statusCode: 500, // internal server error
             body: JSON.stringify(error.message)
         }
 
     }
     //this is a response to the API Gateway
     const response: APIGatewayProxyResult = {
-        statusCode: 200,
+        statusCode: 200, //     
         body: JSON.stringify(message)
     }
     console.log(event)

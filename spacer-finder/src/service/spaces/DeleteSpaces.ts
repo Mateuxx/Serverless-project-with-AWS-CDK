@@ -23,6 +23,7 @@ export async function deleteSpaces(event: APIGatewayProxyEvent, dynamodbClient: 
                 statusCode: 200, //ok
                 body: JSON.stringify("Space deleted successfully")
             }
+            
 
         } else {
             return {
