@@ -1,17 +1,27 @@
 
 
-GET https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces
+GET  https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces
 ###
 
 POST https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces
 Content-Type: application/json
 
 {
-    "location": "England"
+    "location": "Spain"
 }
 ###
 
-
-GET https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces
+GET https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces?id=becb97de-7da6-4197-8e20-d1e6fa4779ab
 ###
 
+
+PUT https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces?id=becb97de-7da6-4197-8e20-d1e6fa4779ab
+Content-Type: application/json
+
+{
+    "location": "Spain changed again"
+}
+###
+
+DELETE https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/spaces?id=becb97de-7da6-4197-8e20-d1e6fa4779ab
+###

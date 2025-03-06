@@ -27,12 +27,17 @@ export class LambdaStack extends Stack {
             }
         });
 
+        // we are giving the permissions that our lambda que get to do things
         spacesLambda.addToRolePolicy(new PolicyStatement({
             effect: Effect.ALLOW,
             resources:[props.spacesTable.tableArn],
             //actions that our lambda can have on spacesTable DB
             actions: [
-                'dynamodb:PutItem'
+                'dynamodb:PutItem',
+                'dynamodb:Scan',
+                'dynamodb:GetItem',
+                'dynamodb:UpdateItem',
+                'dynamodb:DeleteItem'
             ]
         }))
 
