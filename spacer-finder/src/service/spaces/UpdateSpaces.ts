@@ -28,6 +28,7 @@ export async function updateSpaces (event: APIGatewayProxyEvent, dynamodbClient:
             },
             // especificie out the attribute that we want to update
             // these a "marcadores de posição" -  i can give any names i want
+            // set is a reserved word in dynamodb to update an attribute
             UpdateExpression: 'set #zzzNew = :new',
             ExpressionAttributeValues : {
                 ':new': {S: requestBodyValue}
