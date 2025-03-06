@@ -4,6 +4,7 @@ import { postSpaces } from "./PostSpaces";
 import { getSpaces } from "./GetSpaces";
 import { updateSpaces } from "./UpdateSpaces";
 import { deleteSpaces } from "./DeleteSpaces";
+import { jsonError } from "../shared/Validators";
 
 
 //Its always a good practice to create this client outsiede the handler(its like a main function) cause we can reused by multiples lambda invocations
@@ -36,6 +37,13 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
                 break;
         }
     } catch (error) {
+
+        if (error instanceof jsonError) {
+            return {
+                statusCode: 400, //bad request
+                body: JSON.stringify(error.message)
+            }
+        }
         console.log(error)
         return {
             statusCode: 500, // internal server error

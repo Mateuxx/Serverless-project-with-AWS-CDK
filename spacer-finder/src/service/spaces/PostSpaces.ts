@@ -1,6 +1,7 @@
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { v4 } from "uuid";
+import { parseJson } from "../shared/Utils";
 
 
 export async function postSpaces (event: APIGatewayProxyEvent, dynamodbClient: DynamoDBClient): Promise<APIGatewayProxyResult> {
@@ -9,7 +10,7 @@ export async function postSpaces (event: APIGatewayProxyEvent, dynamodbClient: D
     const randomId = v4();
     
     //we receive the body and then we parse it 
-    const item = JSON.parse(event.body);
+    const item = parseJson(event.body);
     console.log(item);
 
     //insert an id on dynamoDB
