@@ -1,12 +1,12 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from "aws-lambda";
 import { postSpaces } from "./PostSpaces";
-import { getSpaces } from "./GettSpaces";
+import { getSpaces } from "./GetSpaces";
 import { updateSpaces } from "./UpdateSpaces";
 import { deleteSpaces } from "./DeleteSpaces";
 
 
-//Its always a good practice to create this client outsiede the handler function cause we can reused by multiples lambda invocations
+//Its always a good practice to create this client outsiede the handler(its like a main function) cause we can reused by multiples lambda invocations
 const dynamodbClient = new DynamoDBClient({})
 
 //we receive a  a event from the APIGatewayProxyEvent and a context?
@@ -43,7 +43,7 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
         }
 
     }
-    //this is a response to the API Gateway
+    //this is a response to the API Gateway 
     const response: APIGatewayProxyResult = {
         statusCode: 200, //     
         body: JSON.stringify(message)

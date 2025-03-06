@@ -2,7 +2,7 @@ import { DynamoDBClient, GetItemCommand, ScanCommand } from "@aws-sdk/client-dyn
 import { unmarshall } from "@aws-sdk/util-dynamodb"; 
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 
-
+//lambda for get 
 export async function getSpaces (event: APIGatewayProxyEvent, dynamodbClient: DynamoDBClient): Promise<APIGatewayProxyResult> {
 
     //if i have a query string parameters i enter here 

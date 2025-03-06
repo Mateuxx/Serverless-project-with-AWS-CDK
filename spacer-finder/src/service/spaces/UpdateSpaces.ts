@@ -15,7 +15,7 @@ export async function updateSpaces (event: APIGatewayProxyEvent, dynamodbClient:
 
         // we get the id from the query string parameters
         const spaceId = event.queryStringParameters["id"];
-        // we get the key and value from the body ? the firts key of the objet - mateus, what it is key dude?
+        // we get the key and value from the body ? the firts key of the objet (location) - the value is the actual value of the key  location 
         const requestBodyKey = Object.keys(parsedBody)[0];
         // we get the value from the body the actual value of the key  location 
         const requestBodyValue = parsedBody[requestBodyKey];
@@ -39,10 +39,14 @@ export async function updateSpaces (event: APIGatewayProxyEvent, dynamodbClient:
             ReturnValues: 'UPDATED_NEW'
         }))
 
+        // return the updated item
         return {
             statusCode: 204, // no content
             body: JSON.stringify(updateResult.Attributes)
         }
+
+        
+
 
         
     }

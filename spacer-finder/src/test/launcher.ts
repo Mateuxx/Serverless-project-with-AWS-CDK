@@ -13,11 +13,12 @@ process.env.TABLE_NAME = 'SpaceStack';
 process.env.AWS_REGION = 'us-east-2';
 
 handler({
-    httpMethod: 'PUT',
+    httpMethod: 'DELETE',
     queryStringParameters: {
         id: '83afc83d-d3f2-4f3c-b37c-b20920fcaa1b'
     },
-    body: JSON.stringify({
-        location: 'Brasil updated'
-    })
+    // body: JSON.stringify({
+    //     location: 'Brasil updated'
+    // })
 } as any, {} as any)
+
