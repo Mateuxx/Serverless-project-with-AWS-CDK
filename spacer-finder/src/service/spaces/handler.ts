@@ -2,6 +2,7 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from "aws-lambda";
 import { postSpaces } from "./PostSpaces";
 import { getSpaces } from "./GettSpaces";
+import { updateSpaces } from "./updateSpaces";
 
 
 //Its always a good practice to create this client outsiede the handler function cause we can reused by multiples lambda invocations
@@ -22,6 +23,9 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
                 const postResponse = await postSpaces(event, dynamodbClient);
                 return postResponse;
 
+                case "PUT":
+                    const putResponse = await updateSpaces(event, dynamodbClient);
+                    return putResponse;
             default:
                 break;
         }
