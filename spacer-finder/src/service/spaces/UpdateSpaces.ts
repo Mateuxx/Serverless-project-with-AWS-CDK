@@ -19,7 +19,7 @@ export async function updateSpaces (event: APIGatewayProxyEvent, dynamodbClient:
         const requestBodyKey = Object.keys(parsedBody)[0];
         // we get the value from the body the actual value of the key  location 
         const requestBodyValue = parsedBody[requestBodyKey];
-
+        
         //update the item 
         const updateResult = await dynamodbClient.send(new UpdateItemCommand({
             TableName: process.env.TABLE_NAME,
@@ -44,10 +44,6 @@ export async function updateSpaces (event: APIGatewayProxyEvent, dynamodbClient:
             statusCode: 204, // no content
             body: JSON.stringify(updateResult.Attributes)
         }
-
-        
-
-
         
     }
     return {

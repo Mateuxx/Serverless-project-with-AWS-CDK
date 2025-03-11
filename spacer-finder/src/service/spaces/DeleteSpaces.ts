@@ -24,7 +24,7 @@ export async function deleteSpaces(event: APIGatewayProxyEvent, dynamodbClient: 
                 body: JSON.stringify("Space deleted successfully")
             }
             
-
+        
         } else {
             return {
                 statusCode: 400,
@@ -37,4 +37,7 @@ export async function deleteSpaces(event: APIGatewayProxyEvent, dynamodbClient: 
             body: JSON.stringify("Missing Parameters")
         }
     }
+
+    // return {
+    //     statusCode: 200,
 } 

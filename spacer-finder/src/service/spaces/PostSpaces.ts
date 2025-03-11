@@ -26,6 +26,7 @@ export async function postSpaces (event: APIGatewayProxyEvent, dynamodbClient: D
         }
     }));
 
+    
     console.log(result)
 
     return {
@@ -33,3 +34,5 @@ export async function postSpaces (event: APIGatewayProxyEvent, dynamodbClient: D
         body: JSON.stringify({id: randomId})
     }
 }
+    
+    // 

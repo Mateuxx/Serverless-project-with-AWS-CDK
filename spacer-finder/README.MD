@@ -2,9 +2,41 @@
 - AWS CDK -> Cloud Development Kit
 - We can write in programming language to write aws resources and cloudFormation templates so aws can run 
 
-### AWS Serverless 
+### Serverless development on AWS 
 - Com Serverless, você só paga pelo tempo de execução do código e não se preocupa com infraestrutura.
-- AWS will take care of scalability and other stuffs like that 
+- AWS will take care of scalability and other stuffs like that  
+- The following diagram shows an event-driven serverless microservice. A client request is converted by an API Gateway into an event that is sent to a Lambda compute service. A Lambda function retrieves info from a DynamoDB data store. That data is returned in an event to API Gateway, which sends a response to the client with all the appropriate headers, cookies, and security tokens.
+- see here the diagram here: https://docs.aws.amazon.com/pt_br/serverless/latest/devguide/serverless-shift-mindset.html
+- Serverless is built on independent services that communicate through events in an event-driven architecture.
+- event-driven architecture (EDA) - a modern architecture pattern built from small decoupled services that publish, consume, or route events.
+- events - represent a change in state, or an update
+
+### Stacks:
+
+Quando Criar uma Nova Stack?
+Você deve considerar criar uma nova stack quando:
+Ciclo de Vida Diferente Recursos que são atualizados em momentos diferentes
+Exemplo: Frontend (atualização frequente) vs Database (mais estável)
+2. Diferentes Níveis de Permissão
+Recursos que precisam de diferentes níveis de acesso
+Exemplo: Separar recursos públicos dos privados
+3. Limites de Recursos
+AWS tem limites por stack (200 recursos)
+Grandes aplicações podem precisar dividir recursos
+Reutilização
+Recursos que podem ser reutilizados em outros projetos
+Exemplo: Stack de autenticação que serve várias aplicações
+
+#### AWS Services :
+
+#### IAM (Identity and Acess Management)
+Interactions with AWS services and resources by developers and entities require:
+
+  - **Authentication**: proof that the entity requesting access is who they claim to be
+  - **Authorization**: actions that are allowed or denied
+  - attach policies 
+  
+
 
 ### AWS LAMBDA
 - A basic piece of code wich can be run on demand(**AWS only will execute when its receive a request**)
