@@ -36,8 +36,6 @@ Interactions with AWS services and resources by developers and entities require:
   - **Authorization**: actions that are allowed or denied
   - attach policies 
   
-
-
 ### AWS LAMBDA
 - A basic piece of code wich can be run on demand(**AWS only will execute when its receive a request**)
 - the heart of a serverless archicture
@@ -91,7 +89,3 @@ From a basic point of view of a basic serverles application, we have:
 ### Marshalling and Unmarshalling
 - Marshalling: Converting programming language types into DynamoDB format (ex: JS object -> DynamoDB item)
 - Unmarshalling: Converting DynamoDB format back to programming language types (ex: DynamoDB item -> JS object)
-
-## Just a test for this
-
-one more test 
