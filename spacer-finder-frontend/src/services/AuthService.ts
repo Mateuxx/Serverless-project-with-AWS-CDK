@@ -1,3 +1,5 @@
+import {AuthStack} from'../../../spacer-finder/outputs.json'
+
 export class AuthService {
   //this is a async method to export a login
   public async login(
