@@ -3,11 +3,14 @@
     "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpaceStack",
     "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:us-east-2:463470964328:table/SpaceStack"
   },
+  "AuthStack": {
+    "ExportsOutputFnGetAttSpaceUserPool6AB542DCArnC2E21F85": "arn:aws:cognito-idp:us-east-2:463470964328:userpool/us-east-2_MQh7Q4CVK",
+    "SpaceUserPoolId": "us-east-2_MQh7Q4CVK",
+    "SpaceUserPoolClientId": "5lrafmabdckum82u0p9te1iuga",
+    "SpaceIdentityPoolId": "us-east-2:650d1063-b3dc-48a0-ba9b-3a08a61755f6"
+  },
   "LambdaStack": {
     "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:us-east-2:463470964328:function:LambdaStack-SpacesLambdaA5F923A4-AGTu2AtdIeHH"
-  },
-  "UiDeploymentStack": {
-    "SpaceFinderUrl": "duug56nsgr31x.cloudfront.net"
   },
   "ApiStack": {
     "SpacesApiEndpoint36C4F3B6": "https://qoyojs9lb7.execute-api.us-east-2.amazonaws.com/prod/"

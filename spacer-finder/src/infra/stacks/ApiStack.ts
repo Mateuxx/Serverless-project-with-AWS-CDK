@@ -1,6 +1,9 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
-import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { Stack, StackProps } from 'aws-cdk-lib'
+import { AuthorizationType, CognitoUserPoolsAuthorizer, Cors, LambdaIntegration, MethodOptions, ResourceOptions, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { IUserPool } from 'aws-cdk-lib/aws-cognito';
+import { AuthorizationToken } from 'aws-cdk-lib/aws-ecr';
 import { Construct } from 'constructs';
+
 
 //API Gateway 
 /*
@@ -25,6 +28,7 @@ for each incoming request to process the CRUD operations on our DynamoDB table.
 
 interface ApiStackProps extends StackProps {
     spacesLambdaIntegration: LambdaIntegration
+    userpool: IUserPool
 }
 
 export class ApiStack extends Stack {
@@ -32,15 +36,32 @@ export class ApiStack extends Stack {
     constructor(scope: Construct, id: string, props: ApiStackProps) {
         super(scope, id, props);
 
-        // Data stack resources
-        const api = new RestApi(this, 'SpacesApi')
-        
-        // add a resource by hand
-        const SpacesResource = api.root.addResource('spaces');
+        const api = new RestApi(this, 'SpacesApi');
 
-        SpacesResource.addMethod('GET', props.spacesLambdaIntegration)
-        SpacesResource.addMethod('POST', props.spacesLambdaIntegration)
-        SpacesResource.addMethod('PUT', props.spacesLambdaIntegration)
-        SpacesResource.addMethod('DELETE', props.spacesLambdaIntegration)
+        const authorizer = new CognitoUserPoolsAuthorizer(this, 'SpacesApiAuthorizer', {
+            cognitoUserPools:[props.userpool],
+            identitySource: 'method.request.header.Authorization'
+        });
+        authorizer._attachToApi(api);
+
+        const optionsWithAuth: MethodOptions = {
+            authorizationType: AuthorizationType.COGNITO,
+            authorizer: {
+                authorizerId: authorizer.authorizerId
+            }
+        }
+
+        const optionsWithCors: ResourceOptions = {
+            defaultCorsPreflightOptions: {
+                allowOrigins: Cors.ALL_ORIGINS,
+                allowMethods: Cors.ALL_METHODS
+            }
+        }
+
+        const spacesResource = api.root.addResource('spaces', optionsWithCors);
+        spacesResource.addMethod('GET', props.spacesLambdaIntegration, optionsWithAuth);
+        spacesResource.addMethod('POST', props.spacesLambdaIntegration,optionsWithAuth);
+        spacesResource.addMethod('PUT', props.spacesLambdaIntegration, optionsWithAuth);
+        spacesResource.addMethod('DELETE', props.spacesLambdaIntegration, optionsWithAuth);
     }
 }
