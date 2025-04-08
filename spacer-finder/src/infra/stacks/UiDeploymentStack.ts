@@ -23,12 +23,12 @@ export class UiDeploymentStack extends Stack {
       "..",
       "..",
       "..",
-      "space-finder-frontend",
+      "spacer-finder-frontend",
       "dist"
     );
     // ExistsSync verifies if a path exists
     if (!existsSync(uiDir)) {
-      console.log("Ui dir not foun: " + uiDir);
+      console.warn("Ui dir not found: " + uiDir);
       return;
     }
 
