@@ -4,9 +4,9 @@ import * as lambdaNodeJS from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 
 export class ProductsAppStack extends Stack {
-  // referencia da lambda dentro dessa stack 
+  // referencia da lambda dentro dessa stack
   //exportar função para usar em outra stack ou passa por uma api gateway (o que é o que queremos aqui!!!)
-  readonly prodructsFetchHandler: lambdaNodeJS.NodejsFunction; 
+  readonly prodructsFetchHandler: lambdaNodeJS.NodejsFunction;
 
   // scope - onde vai ser inserido
   // props - algumas propriedades
