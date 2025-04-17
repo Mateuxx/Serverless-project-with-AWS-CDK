@@ -1,6 +1,12 @@
 import { Stack, StackProps } from "aws-cdk-lib";
-import { LambdaIntegration, RestApi } from "aws-cdk-lib/aws-apigateway";
+import {
+  AccessLogFormat,
+  LambdaIntegration,
+  LogGroupLogDestination,
+  RestApi,
+} from "aws-cdk-lib/aws-apigateway";
 import * as lambdaNodeJS from "aws-cdk-lib/aws-lambda-nodejs";
+import { LogGroup } from "aws-cdk-lib/aws-logs";
 import { Construct } from "constructs";
 
 //para acessar a lambda de produtos
@@ -13,9 +19,27 @@ export class EcommerceApiStack extends Stack {
   constructor(scope: Construct, id: string, props: EcommerceApiStackProps) {
     super(scope, id, props);
 
+    const logGroup = new LogGroup(this, "EcommerceApiGatewayLogs");
+
     //cria o api gateway
     const apiGateway = new RestApi(this, "EcommerceApiGateway", {
       restApiName: "EcommerceApiGateway",
+      cloudWatchRole: true,
+      deployOptions: {
+        accessLogDestination: new LogGroupLogDestination(logGroup), //onde o api gateway deve gerar os logs
+        //logs configs
+        accessLogFormat: AccessLogFormat.jsonWithStandardFields({
+          httpMethod: true,
+          ip: true,
+          protocol: true,
+          requestTime: true,
+          resourcePath: true,
+          responseLength: true,
+          status: true,
+          caller: true,
+          user: true,
+        }),
+      },
     });
 
     //cria a integração da api gateway com a lambda de products
