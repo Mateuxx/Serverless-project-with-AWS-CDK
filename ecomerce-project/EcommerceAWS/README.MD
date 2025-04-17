@@ -17,7 +17,7 @@
 
 - **Os recursos tbm são apagados juntamente com a exclusão da stack**
 - Obviamente isso deve ser configurado
-  - uma tabelade de um database geralmente não é excluido
+  - uma tabela de de um database geralmente não é excluido
 
 ## Lambda 
 
@@ -27,6 +27,20 @@
   - tempo de execução
   - memoria consumida
 - ***otimizações para isso é prioridade***
+
+### AWS API GATEWAY 
+
+- colocamos na frente de serviços que expoe APIS para o mundo externo
+  - endpoit para ser consumido alguem CLIENT
+- validação de requests
+  - URI
+  - HTTP
+  - payloads (body)
+- Custo:
+  - por requisição
+  - e dados requeridos
+  - mto mais barato que fazer direto
+
 
 ## CDK 
 

@@ -10,6 +10,13 @@ export async function handler(
 ): Promise<APIGatewayProxyResult> {
   // id da funcção lambda e tals - identifica unicamente a requisição pela api gateway
   const lambdaRequestId = context.awsRequestId;
+  const apiRequestID = event.requestContext.requestId;
+
+  // see on the cloudwatch
+  // gera custo na função lambda - cuidado com os logs - latencia e tals
+  console.log(
+    `API Gateway Request ID ${apiRequestID} - Lambda Request ID: ${lambdaRequestId}`
+  );
   const mehtod = event.httpMethod;
   if (event.resource === "/produtcs") {
     if (mehtod === "GET") {
