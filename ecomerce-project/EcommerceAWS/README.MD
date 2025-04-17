@@ -1,5 +1,8 @@
 # Ecommerce project
 
+## Arquitetura
+
+![alt text](image.png)
 
 ## Stacks
 
@@ -16,7 +19,16 @@
 - Obviamente isso deve ser configurado
   - uma tabelade de um database geralmente não é excluido
 
-## CDK ****
+## Lambda 
+
+- funções que são executados por um trigger a partir de um trigger
+- Excução em runtime
+- Custo é cobrado
+  - tempo de execução
+  - memoria consumida
+- ***otimizações para isso é prioridade***
+
+## CDK 
 
 ### start a cdk project
 
@@ -27,8 +39,3 @@ cdk init --language typescript
 ### CDK WORKFLOW
 
 - CODE IN CDK -> CLOUDFORMATION TEMPLATE  -> RESOURCES CREATION AND ETC.
-
-## Arquitetura
-
-![alt text](image.png)
-
